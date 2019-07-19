@@ -7,12 +7,12 @@ public class AtmEkran {
         Account birol = new Account();
 
         birol.setAccountNo("DE328404398049034");
-        birol.setEmail("birol>birol.com");
+        birol.setEmail("birol@birol.com");
         birol.setName("birol");
         birol.setPhoneNumber(1234512345);
 
         birol.setBalance(100);
-        int money = birol.getBalance();
+        double money = birol.getBalance();
 
         String sonuc = birol.pullMoney(-1711);
         System.out.println(sonuc);
@@ -24,7 +24,7 @@ public class AtmEkran {
         Account account1 = new Account("DE122121", 1200, "Birol Yılmaz", "birol@dd.com", 12345 );
         
         String name = account1.getName();
-        int balance = account1.getBalance();
+        double balance = account1.getBalance();
         System.out.println(name);
         System.out.println(balance);
     }
