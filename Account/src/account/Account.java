@@ -3,23 +3,49 @@ package account;
 public class Account {
 
     private String accountNo;
-    private int balance;
+    private double balance;
     private String name;
     private String email;
     private int phoneNumber;
 
-    public Account(){}
-    public Account(String accountNo, int balance, String name, String email, int phoneNumber ){
+    public Account() {
+        /*  Otomatik değer atamanın bir yolu :
+    this.accountNo = "Unknown";
+    this.balance = 0.0;
+    this.name = "unknown";
+    this.email = "unknown";
+    this.phoneNumber = 00000;
+         */
+
+        // Bu da ikinci yol. Aşağıda yazılan constructor bu yöntemle çağırılıyor...
+        this("unknown", 0.0, "unknown", "unknown", 00000);
+
+    }
+
+    public Account(String name, String email, int phoneNumber) {
+        /*
+    this.name = name;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
     
+    this.accountNo = "unknown";
+    this.balance = 0.0;
+         */
+
+        this("unknown", 0.0, name, email, phoneNumber);
+
+    }
+
+    public Account(String accountNo, double balance, String name, String email, int phoneNumber) {
+
         this.accountNo = accountNo;
         this.balance = balance;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-    
+
     }
-    
-    
+
     public boolean loadMoney(int money) {
         if (money > 0) {
             balance += money;
@@ -35,11 +61,11 @@ public class Account {
             return "too much";
         } else if (money < 0) {
             return "wrong";
-        }else if(balance - money < 0){
+        } else if (balance - money < 0) {
             return "no enough credit";
-        }else{
-        balance -= money;
-        return "OK";
+        } else {
+            balance -= money;
+            return "OK";
         }
 
     }
@@ -61,14 +87,14 @@ public class Account {
     /**
      * @return the balance
      */
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
     /**
      * @param balance the balance to set
      */
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
